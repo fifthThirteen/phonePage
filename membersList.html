@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>会员列表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/easyTree.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/easyTree.js"></script>
+    <style>
+        body {
+            background: #eee;
+        }
+    </style>
+</head>
+<body>
+<div class="col-md-3">
+    <h3 class="text-success"><a href="javascript:;" class="glyphicon glyphicon-menu-left" onClick="javascript:history.back(-1);"></a>我的会员</h3>
+    <div class="easy-tree">
+        <ul>
+            <li>李白</li>
+            <li>杜甫
+                <ul>
+                    <li>Example 1</li>
+                    <li>Example 2
+                        <ul>
+                            <li>Example 1</li>
+                            <li>Example 2</li>
+                            <li>Example 3</li>
+                            <li>Example 4</li>
+                        </ul>
+                    </li>
+                    <li>Example 3</li>
+                    <li>Example 4</li>
+                </ul>
+            </li>
+            <li>王老吉
+                <ul>
+                    <li>Example 1</li>
+                    <li>Example 2</li>
+                    <li>Example 3</li>
+                    <li>Example 4
+                        <ul>
+                            <li>Example 1</li>
+                            <li>Example 2</li>
+                            <li>Example 3</li>
+                            <li>Example 4</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="margin-bottom:-16px;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">会员信息</h4>
+      </div>
+      <div class="modal-body">
+        <table class="table table-striped">
+          <tr><th>姓名</th><th>手机号码</th><th>级别</th></tr>
+          <tr><td>1</td><td>1</td><td>1</td></tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-defined">升级</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+    $("li").click(function(){
+    });
+    (function ($) {
+        function init() {
+            $('.easy-tree').EasyTree({
+                addable: false,
+                editable: false,
+                deletable: false
+            });
+        }
+
+        window.onload = init();
+    })(jQuery);
+    $().ready(function() {
+      var url ="membersList.php";
+      var data = {};
+
+      // $.getJSON(url,data,function(val){
+      //   // $("#name").val(val.name);
+      //   document.getElementById("name").innerHTML = val.address.name;
+      //   // console.log(val.first.name);
+      //   document.getElementById("phone").innerHTML = val.address.phone;
+      //   document.getElementById("level").innerHTML = val.address.level;
+      // });
+    }); 
+</script>
+</body>
+</html>

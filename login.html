@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>绑定手机</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="col-md-3">
+      <h4 class="login-notice">首次登录，请完善以下信息</h4>
+      <form action="" class="form-horizontal login-form" id="loginForm">
+        <div class="form-group">
+          <!-- <label for="inputName" class="col-sm-2 control-label">姓名</label> -->
+          <div class="col-sm-12">
+            <input type="text" class="form-control" id="name" name="name" placeholder="请输入您的真实姓名" checked="checked" required="required" />
+          </div>
+        </div>
+        <div class="form-group">
+          <!-- <label for="inputPhone" class="col-sm-2 control-label">账号</label> -->
+          <div class="col-sm-12">
+            <input type="tel" class="form-control" id="phone" name="phone" placeholder="请正确输入您的手机号码" required="required" />
+          </div>
+        </div>
+        <div class="form-group">
+          <!-- <label for="inputPhone" class="col-sm-2 control-label">密码</label> -->
+          <div class="col-sm-12">
+            <input type="password" class="form-control" id="password" name="password" maxlength="20" placeholder="请输入您的密码，6位以上" required="required" />
+          </div>
+        </div>
+        <div class="form-group">
+          <!-- <label for="inputPhone" class="col-sm-2 control-label">密码</label> -->
+          <div class="col-sm-12">
+            <input type="password" class="form-control" id="repassword" name="repassword" maxlength="20" placeholder="请再次确认密码" required="required" />
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-12">
+            <button type="submit" class="btn btn-defined btn-block">确认</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="js/html5shiv.min.js"></script>
+          <script src="js/respond.min.js"></script>
+          <![endif]-->
+
+    <script type="text/javascript">
+          $().ready(function() {
+          // 手机号码验证
+          jQuery.validator.addMethod("mobile", function(value, element) {
+            var length = value.length;
+            var mobile =  /^(((13[0-9]{1})|(15[0-9]{1}))+\d{8})$/
+            return this.optional(element) || (length == 11 && mobile.test(value));
+          }, "手机号码格式错误"); 
+          // 中文的验证
+          jQuery.validator.addMethod("chinese", function(value, element) {
+            var chinese = /^[\u4e00-\u9fa5]+$/;
+            return this.optional(element) || (chinese.test(value));
+          }, "只能输入中文");
+          $("#loginForm").validate({
+            rules: {
+              name: {
+                required: true,
+                chinese: true,
+                rangelength:[2,4]
+              },
+              phone: {
+                required: true,
+                mobile:true,
+                remote: {
+                  url: "login.php",     //后台处理程序
+                  type: "get",               //数据发送方式
+                  dataType: "json",           //接受数据格式   
+                  data: {                     //要传递的数据
+                      phone: function() {
+                          return $("#phone").val();
+                      }
+                  }
+                }
+              },
+              password: {
+                required: true,
+                rangelength: [6,20]
+              },
+              repassword: {
+                required: true,
+                rangelength: [6,20],
+                equalTo:"#password"
+              }
+            },
+            messages: {
+              name: {
+                required: "必填",
+                chinese: "请输入中文",
+                rangelength: "必须在2-4位间"
+              },
+              phone: {
+                required: "必填",
+                mobile: "请输入正确的手机号码",
+                remote:"该手机号已存在"
+              },
+              password: {
+                required: "必填",
+                rangelength: "必须在6-20之间"
+              },
+              repassword: {
+                required: "必填",
+                rangelength: "必须在6-20之间",
+                equalTo: "两次输入的密码不对"
+              }
+            },
+            scroll: true,
+            focusFirstField: true,
+            errorElement: "em", //可以用其他标签，记住把样式也对应修改
+            // errorPlacement: function (error,element) {
+            //   // element.next("em.error").remove();
+            //   // element.after('<em class="error">' + error.text() + '</em>');
+            // },
+            // success: function(em) {
+            //   //label指向上面那个错误提示信息标签em//清空错误提示消息//多次提交不删除正确提示标签，正确提示之后再错误也不删除正确提示标签
+            //   em.text("").removeClass("error").addClass("glyphicon glyphicon-ok");  //加上自定义的success类
+            // },
+            // errorContainer: "div.error",
+            // errorLabelContainer: $("#loginForm div.error"),
+            // wrapper: "div"
+          }); 
+        });
+               
+    </script>
+  </body>
+</html>

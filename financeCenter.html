@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>帐务中心</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="col-md-3 financeCenter">
+    <h3 class="finance-title"><a href="javascript:;" class="glyphicon glyphicon-menu-left" onClick="javascript:history.back(-1);"></a>佣金提现</h3>
+    <div class="table-responsive finance-table">
+        <h5>账户明细</h5>
+        <table class="table">
+            <tr><td>佣金总额</td><td class="right">￥988.00</td></tr>
+            <tr><td class="important">可提现佣金</td><td class="important right">￥500.00</td></tr>
+            <tr><td>提现中佣金</td><td class="right">￥0.00</td></tr>
+            <tr><td>已提现佣金</td><td class="right">￥0.00</td></tr>
+            <tr><td>购物券</td><td class="right">￥98.00</td></tr>
+        </table>
+    </div>
+
+    <p class="notice"><span>注意事项</span>提现佣金必须是<mark>500</mark>的整数倍！如果不手动填写提现金额，点击提现系统将按当前可提现佣金提交！提现将扣<mark>5%</mark>的手续费！</p>
+    <form class="form-inline finance-form">
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-addon">￥</div>
+          <!-- <select class="form-control">
+            <option>111111111111111111</option>
+            <option>1</option>
+            <option>1</option>
+            <option>1</option>
+          </select> -->
+          <input type="text" class="form-control" id="exampleInputAmount" placeholder="可提现佣金：￥500">
+          <div class="input-group-addon">.00</div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success">提现</button>
+    </form>
+      
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

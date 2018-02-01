@@ -1,0 +1,256 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+img {
+  border: none;
+}
+input,
+select,
+textarea {
+  outline: none;
+  border: none;
+  background: none;
+}
+textarea {
+  resize: none;
+}
+a {
+  text-decoration: none;
+}
+body {
+  position: relative;
+  font-family: "Microsoft Yahei", "微软雅黑";
+  font-size: 14px;
+  width: 100%;
+}
+@media (min-width: 992px) {
+	.col-md-3 {
+		width: 360px;
+		float: none;
+		display: block;
+		margin: 0 auto;
+	}
+}
+.login-notice {
+	margin: 30px auto;
+  	font-family: "Microsoft Yahei", "微软雅黑";
+	text-align: center;
+	color: #3c763d;
+}
+.index-title {
+	padding: 10px 0;
+	margin: 0;
+	font-weight: bold;
+	font-size: 16px;
+	text-align: center;
+	background-color: #f7f7f9;
+	color: #3c763d;
+}
+.btn-defined {
+	background-color: #89AE00;
+	color: #FFF;
+	font-family: "微软雅黑";
+	font-size: 16px;
+	font-weight: bold;
+	white-space: nowrap;
+	letter-spacing: 2px;
+}
+
+.table td.line {
+	display: block;
+	margin-bottom: -5px;
+	background-color: #f7f7f9;
+}
+.table td a {
+	color: #333;
+}
+.table td a:hover {
+	text-decoration: none;
+}
+.table-responsive tr {
+	background-color: #FFF;
+}
+.glyphicon {
+	margin-right: 10px;
+	display: inline-block;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 25px;
+	width: 25px;
+	height: 25px;
+	color: #FFF;
+}
+.glyphicon-user {
+	background-color: #89AE00;
+}
+.glyphicon-object-align-left {
+	background-color: #6f5499;
+}
+.glyphicon-list-alt {
+	background-color: #5cb85c;
+}
+.glyphicon-yen {
+	background-color: #f0ad4e;
+}
+.glyphicon-file {
+	background-color: #5bc0de;
+}
+.glyphicon-shopping-cart {
+	background-color: #337ab7;
+}
+.glyphicon-th-list {
+	background-color: rgb(207,70,70);
+}
+.glyphicon-refresh {
+	background-color: rgb(109,51,83);
+}
+.glyphicon-star {
+	background-color: rgb(240,219,79);
+}
+.glyphicon-tags {
+	background-color: rgb(96,94,94);
+}
+.glyphicon-home {
+	background-color: rgb(7,105,173);
+}
+.btn-block:hover {
+	color: #FFF;
+	background-color: #7A9A03;
+}
+input.error {
+	border-color: #a94442;
+}
+input.error:focus {
+	border-radius:4px;
+	outline:red solid thin;
+	/*border-color: red;*/
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	outline:5px auto -webkit-focus-ring-color;
+	outline-offset:-2px;
+}
+input.valid {
+	border-color: #3c763d;
+}
+em { 
+	font-weight: bold; 
+	padding-right: 1em; 
+	vertical-align: top; 
+}
+em.error {
+	position: absolute;
+	top:-15px;
+	right: 20px;
+	display: inline-block;
+	margin-top: 5px;
+    padding-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: "微软雅黑";
+    font-weight: normal;
+    text-align: center;
+    background-color: rgb(207,64,78);
+    color: #FFF;
+    z-index: 999;
+}
+em.glyphicon-ok {
+	position: absolute;
+	top: 4px;
+	right: 10px;
+	color: #3c763d;
+}
+.table tr.secondColumn > td  {
+	font-size: 12px;
+	border-top: 1px dotted #ccc;
+}
+.table tr.secondColumn {
+	background-color: #EFEBEB;
+}
+tr.secondColumn td span.glyphicon {
+	left: 15px;
+	margin-right: 30px;
+	width: 20px;
+	height: 20px;
+	font-size: 12px;
+	line-height: 20px;
+}
+/* 向下提示箭头
+.bottom {   
+	position: absolute;
+    overflow: hidden;
+    border: solid transparent;
+    border-width: 6px;
+    border-top-color: #CF404E;
+    top: 8px;
+    left: -12px;
+    height: 0;
+    width: 0px;
+    z-index: 2;
+}*/
+/*financeCenter*/
+.finance-title {
+	padding: 10px 0;
+	margin: 0;
+	font-weight: bold;
+	font-size: 16px;
+	text-align: left;
+	background-color: #f7f7f9;
+	color: #3c763d;
+}
+.finance-title a {
+	position: relative;
+    top: 1px;
+	margin-right: 0;
+	color: #3c763d;
+}
+.finance-title a:hover {
+	text-decoration: none;
+}
+.finance-form .form-group {
+	float: left;
+	width: 80%;
+}
+@media (min-width: 768px) {
+	.finance-form .form-group {
+		float: left;
+		width: 80%;
+	}
+	.finance-form button {
+		float: right;
+		width: 20%;
+	}
+}
+.finance-form button {
+	float: right;
+	width: 20%;
+}
+.finance-table {
+	clear: both;
+}
+
+.finance-table h5 {
+	padding-left: 9px;
+	font-weight: bold;
+}
+.finance-table td.right {
+	text-align: right;
+}
+.important {
+	color: #d9534f;
+}
+
+.notice {
+	margin-top: -5px;
+	padding: 5px;
+	border: 1px solid #CCC;
+	border-left: 4px solid #aa6708; 
+}
+.notice span {
+	display: block;
+	font-weight: bold;
+	color: #aa6708;
+}
